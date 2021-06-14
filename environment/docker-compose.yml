@@ -1,0 +1,9 @@
+version: '3.6'
+services:
+  database:
+    image: postgres
+    environment:
+      - POSTGRES_USER=mybank
+      - POSTGRES_PASSWORD=mybank
+    ports:
+      - 5432:5432
