@@ -11,6 +11,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.validation.Valid;
 import java.util.stream.Collectors;
 
 @Service
@@ -22,7 +23,7 @@ public class BankService {
     private final BankMapper bankMapper;
 
     @Transactional
-    public BankResponse create(final BankRequest request) {
+    public BankResponse create(@Valid final BankRequest request) {
         if (bankRepository.existsByIban(request.getIban())) {
             throw new EntityAlreadyExistsException();
         }
@@ -31,6 +32,7 @@ public class BankService {
         return bankMapper.bankEntityToResponse(bank);
     }
 
+    @Transactional(readOnly = true)
     public PageResponse<BankResponse> findByParams(final Integer page, final Integer size) {
         final var result = bankRepository.findBy(PageRequest.of(page - 1, size));
 

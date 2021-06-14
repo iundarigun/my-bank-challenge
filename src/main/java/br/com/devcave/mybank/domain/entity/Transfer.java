@@ -34,4 +34,6 @@ public class Transfer extends BaseEntity {
     private Account destination;
 
     private BigDecimal amount;
+
+    private BigDecimal tax;
 }

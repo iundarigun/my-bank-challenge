@@ -51,6 +51,7 @@ ALTER TABLE ONLY account
 CREATE TABLE transfer(
     id                    BIGSERIAL PRIMARY KEY,
     amount                numeric(15,2)                NOT NULL,
+    tax                   numeric(15,2)                NOT NULL,
     origin_id             bigint                       NOT NULL,
     destination_id        bigint                       NOT NULL,
     transfer_at           timestamp without time zone  NOT NULL,
