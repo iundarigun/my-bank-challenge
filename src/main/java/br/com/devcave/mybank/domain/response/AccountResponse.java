@@ -3,6 +3,8 @@ package br.com.devcave.mybank.domain.response;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
+import java.math.BigDecimal;
+
 @Getter
 @AllArgsConstructor
 public class AccountResponse {
@@ -11,4 +13,6 @@ public class AccountResponse {
     private final BankResponse bank;
 
     private final CustomerResponse owner;
+
+    private final BigDecimal amount;
 }

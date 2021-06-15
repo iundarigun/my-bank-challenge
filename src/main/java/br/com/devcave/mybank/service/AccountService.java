@@ -43,4 +43,14 @@ public class AccountService {
         final var account = accountRepository.findById(id).orElseThrow(EntityNotFoundException::new);
         return accountMapper.accountEntityToResponse(account);
     }
+
+    @Transactional(readOnly = true)
+    public Account getById(final Long id) {
+        return accountRepository.findById(id).orElseThrow(EntityNotFoundException::new);
+    }
+
+    @Transactional
+    public void update(final Account account) {
+        accountRepository.save(account);
+    }
 }

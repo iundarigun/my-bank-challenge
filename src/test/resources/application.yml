@@ -16,3 +16,14 @@ spring:
     password: ${spring.datasource.password}
     ignore-missing-migrations: true
     out-of-order: true
+
+transfer:
+  rules:
+    SAME_BANK:
+      tax: 0
+    DIFFERENT_BANK:
+      tax: 5
+      limit: 1000
+    SAME_CUSTOMER:
+      tax: 1
+      limit: 5000
