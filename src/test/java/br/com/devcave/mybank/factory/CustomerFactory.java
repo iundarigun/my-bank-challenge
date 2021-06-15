@@ -17,8 +17,8 @@ import static br.com.devcave.mybank.configuration.FakerConfiguration.FAKER;
 public class CustomerFactory {
     private final CustomerRepository customerRepository;
 
-    public List<Customer> create() {
-        return create(FAKER.number().numberBetween(2, 5));
+    public Customer create() {
+        return create(1).get(0);
     }
 
     public List<Customer> create(final Integer quantity) {
@@ -32,5 +32,9 @@ public class CustomerFactory {
                 .name(FAKER.name().fullName())
                 .nationalIdentifier(UUID.randomUUID().toString())
                 .build();
+    }
+
+    public void cleanDatabase() {
+        customerRepository.deleteAll();
     }
 }

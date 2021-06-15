@@ -2,7 +2,10 @@
 # My Bank challenge
 
 - Type of transfer define service by factory
+- Foreign keys
 
 
 ## Improvings
 - Add multilanguage support
+- add more logs
+- hexagonal architecture

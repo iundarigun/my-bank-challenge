@@ -1,5 +1,6 @@
 package br.com.devcave.mybank.service;
 
+import br.com.devcave.mybank.domain.entity.Customer;
 import br.com.devcave.mybank.domain.request.CustomerRequest;
 import br.com.devcave.mybank.domain.response.CustomerResponse;
 import br.com.devcave.mybank.exception.EntityAlreadyExistsException;
@@ -32,5 +33,10 @@ public class CustomerService {
         final var customer = customerRepository.findById(id).orElseThrow(EntityNotFoundException::new);
 
         return customerMapper.customerEntityToResponse(customer);
+    }
+
+    @Transactional(readOnly = true)
+    public Customer getById(final Long id) {
+        return customerRepository.findById(id).orElseThrow(EntityNotFoundException::new);
     }
 }

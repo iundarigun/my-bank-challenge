@@ -24,7 +24,8 @@ public class Account extends BaseEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private BigDecimal amount;
+    @Builder.Default
+    private BigDecimal amount = BigDecimal.ZERO;
 
     @ManyToOne(optional = false)
     private Customer owner;

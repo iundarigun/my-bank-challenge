@@ -1,9 +1,11 @@
 package br.com.devcave.mybank.service;
 
+import br.com.devcave.mybank.domain.entity.Bank;
 import br.com.devcave.mybank.domain.request.BankRequest;
 import br.com.devcave.mybank.domain.response.BankResponse;
 import br.com.devcave.mybank.domain.response.PageResponse;
 import br.com.devcave.mybank.exception.EntityAlreadyExistsException;
+import br.com.devcave.mybank.exception.EntityNotFoundException;
 import br.com.devcave.mybank.mapper.BankMapper;
 import br.com.devcave.mybank.repository.BankRepository;
 import lombok.RequiredArgsConstructor;
@@ -42,5 +44,10 @@ public class BankService {
                 .collect(Collectors.toList());
 
         return new PageResponse<>(page, result.getTotalPages(), result.getTotalElements(), content);
+    }
+
+    @Transactional(readOnly = true)
+    public Bank getById(final Long id) {
+        return bankRepository.findById(id).orElseThrow(EntityNotFoundException::new);
     }
 }

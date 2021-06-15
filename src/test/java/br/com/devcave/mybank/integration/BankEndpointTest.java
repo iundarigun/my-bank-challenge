@@ -30,7 +30,7 @@ public class BankEndpointTest extends AbstractEndpointTest {
 
     @BeforeEach
     void beforeEach() {
-        bankRepository.deleteAll();
+        bankFactory.cleanDatabase();
     }
 
     @Test
@@ -161,7 +161,7 @@ public class BankEndpointTest extends AbstractEndpointTest {
     @Test
     @DisplayName("Create existing bank")
     void createExistingBank() {
-        final var bank = bankFactory.create(1).get(0);
+        final var bank = bankFactory.create();
         final var request = new BankRequest(FAKER.company().name(), bank.getIban());
         final var count = bankRepository.count();
 
