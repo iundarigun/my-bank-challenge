@@ -7,3 +7,12 @@ services:
       - POSTGRES_PASSWORD=mybank
     ports:
       - 5432:5432
+  mockWS:
+    image: iundarigun/mock-ws
+    ports:
+      - 1899:1899
+    environment:
+      - MOCK_DEFINITIONPATH=/home/config/
+      - MOCK_FILESPATH=/home/config/json/
+    volumes:
+      - ./mockws:/home/config

@@ -33,8 +33,4 @@ public class BankFactory {
                 .iban(UUID.randomUUID().toString())
                 .build();
     }
-
-    public void cleanDatabase() {
-        bankRepository.deleteAll();
-    }
 }

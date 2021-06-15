@@ -1,5 +1,6 @@
 package br.com.devcave.mybank.integration;
 
+import br.com.devcave.mybank.configuration.CleanDatabase;
 import br.com.devcave.mybank.controller.handler.ErrorResponse;
 import br.com.devcave.mybank.domain.request.TransferRequest;
 import br.com.devcave.mybank.domain.response.TransferResponse;
@@ -32,10 +33,11 @@ public class TransferEndpointTest extends AbstractEndpointTest {
 
     private final AccountRepository accountRepository;
 
+    private final CleanDatabase cleanDatabase;
+
     @BeforeEach
     void beforeEach() {
-        transferRepository.deleteAll();
-        accountFactory.cleanDatabase();
+        cleanDatabase.clean();
     }
 
     @Test

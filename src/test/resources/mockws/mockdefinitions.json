@@ -1,0 +1,9 @@
+[
+  {
+    "url": "/customer-restrictions",
+    "file": "allow.json",
+    "verbs": ["GET"],
+    "status": 200,
+    "ratioError": 0
+  }
+]

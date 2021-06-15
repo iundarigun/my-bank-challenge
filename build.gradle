@@ -46,6 +46,10 @@ dependencies {
 	implementation "org.mapstruct:mapstruct:${mapstructVersion}"
 	annotationProcessor "org.mapstruct:mapstruct-processor:${mapstructVersion}"
 
+	// OpenFeign
+	implementation "org.springframework.cloud:spring-cloud-starter-openfeign"
+	implementation "org.springframework.cloud:spring-cloud-starter-circuitbreaker-resilience4j"
+
 	//Swagger
 	implementation "io.springfox:springfox-boot-starter:${swaggerVersion}"
 	implementation "io.springfox:springfox-swagger-ui:${swaggerVersion}"

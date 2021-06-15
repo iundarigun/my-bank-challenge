@@ -33,8 +33,4 @@ public class CustomerFactory {
                 .nationalIdentifier(UUID.randomUUID().toString())
                 .build();
     }
-
-    public void cleanDatabase() {
-        customerRepository.deleteAll();
-    }
 }

@@ -1,5 +1,6 @@
 package br.com.devcave.mybank.integration;
 
+import br.com.devcave.mybank.configuration.CleanDatabase;
 import br.com.devcave.mybank.controller.handler.ErrorResponse;
 import br.com.devcave.mybank.domain.entity.Bank;
 import br.com.devcave.mybank.domain.request.BankRequest;
@@ -28,9 +29,11 @@ public class BankEndpointTest extends AbstractEndpointTest {
 
     private final BankRepository bankRepository;
 
+    private final CleanDatabase cleanDatabase;
+
     @BeforeEach
     void beforeEach() {
-        bankFactory.cleanDatabase();
+        cleanDatabase.clean();
     }
 
     @Test

@@ -51,10 +51,4 @@ public class AccountFactory {
                         .valueOf(FAKER.number().randomDouble(2, 10_000, 20_000)))
                 .build();
     }
-
-    public void cleanDatabase() {
-        accountRepository.deleteAll();
-        customerFactory.cleanDatabase();
-        bankFactory.cleanDatabase();
-    }
 }

@@ -1,0 +1,16 @@
+[
+  {
+    "url": "/customer-restrictions/12345678",
+    "file": "restrictions.json",
+    "verbs": ["GET"],
+    "status": 200,
+    "ratioError": 0
+  },
+  {
+    "url": "/customer-restrictions",
+    "file": "allow.json",
+    "verbs": ["GET"],
+    "status": 200,
+    "ratioError": 30
+  }
+]
