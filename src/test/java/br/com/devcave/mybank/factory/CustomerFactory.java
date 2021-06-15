@@ -27,7 +27,7 @@ public class CustomerFactory {
                 .collect(Collectors.toList());
     }
 
-    private Customer build() {
+    public Customer build() {
         return Customer.builder()
                 .name(FAKER.name().fullName())
                 .nationalIdentifier(UUID.randomUUID().toString())

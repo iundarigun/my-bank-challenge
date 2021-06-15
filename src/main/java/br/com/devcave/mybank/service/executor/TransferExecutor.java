@@ -24,7 +24,7 @@ public abstract class TransferExecutor {
         final var now = LocalDateTime.now();
         final var totalAmount = calculateTotalAmount(amount);
 
-        if (origin.getAmount().compareTo(amount) < 0) {
+        if (origin.getAmount().compareTo(totalAmount) < 0) {
             throw new NotEnoughMoneyException();
         }
 

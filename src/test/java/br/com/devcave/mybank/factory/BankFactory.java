@@ -27,7 +27,7 @@ public class BankFactory {
                 .collect(Collectors.toList());
     }
 
-    private Bank build() {
+    public Bank build() {
         return Bank.builder()
                 .name(FAKER.company().name())
                 .iban(UUID.randomUUID().toString())
