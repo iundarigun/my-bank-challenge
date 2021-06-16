@@ -1,10 +1,9 @@
 ![Status](https://github.com/iundarigun/my-bank-challenge/actions/workflows/my-bank-challenge-ci.yml/badge.svg)
 # My Bank challenge
 
-- Type of transfer define service by factory
 - Foreign keys
 - review mapper Account (Abstract?)
-- resilient4j to retry
+- sample data
 
 ## Improvings
 - Add multilanguage support

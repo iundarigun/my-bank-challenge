@@ -27,13 +27,7 @@ public class AccountService {
         if (accountRepository.existsByOwnerIdAndBankId(request.getOwnerId(), request.getBankId())) {
             throw new EntityAlreadyExistsException();
         }
-        final var owner = customerService.getById(request.getOwnerId());
-        final var bank = bankService.getById(request.getBankId());
-
-        final var account = accountRepository.save(Account.builder()
-                .owner(owner)
-                .bank(bank)
-                .build());
+        final var account = accountRepository.save(accountMapper.accountRequestToEntity(request));
 
         return accountMapper.accountEntityToResponse(account);
     }
