@@ -62,3 +62,26 @@ CREATE TABLE transfer(
 
 ALTER TABLE ONLY transfer
     ADD CONSTRAINT transfer_unique01 UNIQUE (origin_id, destination_id, transfer_at);
+
+/************************************************/
+/**               Foreign Key                  **/
+/************************************************/
+ALTER TABLE ONLY account
+    ADD CONSTRAINT fk_account_bank_id
+    FOREIGN KEY (bank_id)
+    REFERENCES bank(id);
+
+ALTER TABLE ONLY account
+    ADD CONSTRAINT fk_account_owner_id
+    FOREIGN KEY (owner_id)
+    REFERENCES customer(id);
+
+ALTER TABLE ONLY transfer
+    ADD CONSTRAINT fk_transfer_origin_id
+    FOREIGN KEY (origin_id)
+    REFERENCES account(id);
+
+ALTER TABLE ONLY transfer
+    ADD CONSTRAINT fk_transfer_destination_id
+    FOREIGN KEY (destination_id)
+    REFERENCES account(id);

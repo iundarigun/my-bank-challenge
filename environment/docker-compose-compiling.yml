@@ -1,0 +1,24 @@
+version: '3.6'
+services:
+  database:
+    image: postgres
+    environment:
+      - POSTGRES_USER=mybank
+      - POSTGRES_PASSWORD=mybank
+  mockWS:
+    image: iundarigun/mock-ws
+    environment:
+      - MOCK_DEFINITIONPATH=/home/config/
+      - MOCK_FILESPATH=/home/config/json/
+    volumes:
+      - ./mockws:/home/config
+  mybank:
+    build: ../.
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://database:5432/mybank
+      - FEIGN_CLIENT_CONFIG_BCECLIENT_URL=http://mockWS:1899
+    depends_on:
+      - database
+      - mockWS
+    ports:
+      - 1980:1980
