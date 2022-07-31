@@ -2,7 +2,7 @@
 # My Bank challenge
 
 Welcome to the my-bank challenge! This repository contains the code to run an application to manage customers, banks, accounts and transfers from/to database.
-
+ 
 ## How to run
 
 We need MockWS and Postgres to run. I prepared two ways:
